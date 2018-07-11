@@ -1,6 +1,7 @@
 package clast.census.model;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,6 +23,7 @@ public class User {
 	private String username;
 
 	@NotNull
+	@Embedded
 	private Password password;
 
 	private String name;
