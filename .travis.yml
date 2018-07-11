@@ -4,4 +4,4 @@ language: java
 install: true
 
 script:
-- mvn -f census/pom.xml clean verify
+- mvn -f census/pom.xml clean verify -Pjacoco coveralls:report
