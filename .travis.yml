@@ -3,5 +3,20 @@ language: java
 # skip installation step
 install: true
 
+matrix:
+  fast_finish: true
+  include:
+    - jdk: oraclejdk8
+      env: WITH_COVERALLS=true
+    - jdk: oraclejdk9
+    - jdk: openjdk7
+    - os: osx
+      osx_image: xcode8
+
 script:
-- mvn -f census/pom.xml clean verify -Pjacoco coveralls:report
+ - if [ "$WITH_COVERALLS" == "true" ];
+   then
+     mvn -f census/pom.xml clean verify -Pjacoco coveralls:report;
+   else
+     mvn -f census/pom.xml clean verify;
+   fi
