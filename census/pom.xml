@@ -11,27 +11,15 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<surefire.report.path>${project.basedir}/target/surefire-reports</surefire.report.path>
+		<failsafe.report.path>${project.basedir}/target/failsafe-reports</failsafe.report.path>
 		<jacoco.report.path>${project.basedir}/target/jacoco</jacoco.report.path>
 		<sonar.language>java</sonar.language>
+		<sonar.junit.reportPaths>${surefire.report.path}, ${failsafe.report.path}</sonar.junit.reportPaths>
 		<sonar.jacoco.reportPaths>${jacoco.report.path}/jacoco.exec</sonar.jacoco.reportPaths>
 	</properties>
 
 	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.eluder.coveralls</groupId>
-					<artifactId>coveralls-maven-plugin</artifactId>
-					<version>4.3.0</version>
-					<configuration>
-						<relativeReportDirs>
-							<relativeReportDir>/jacoco</relativeReportDir>
-						</relativeReportDirs>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -40,6 +28,29 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.19.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eluder.coveralls</groupId>
+				<artifactId>coveralls-maven-plugin</artifactId>
+				<version>4.3.0</version>
+				<configuration>
+					<relativeReportDirs>
+						<relativeReportDir>/jacoco</relativeReportDir>
+					</relativeReportDirs>
 				</configuration>
 			</plugin>
 		</plugins>
