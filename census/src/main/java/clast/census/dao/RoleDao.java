@@ -290,7 +290,7 @@ public class RoleDao implements BaseDao{
 	public boolean managesRole(Role role, Role managedRole) {
 		return findAllManagedRoles(role)
 				.stream()
-					.map( dmr -> dmr.getId() )
+					.map( Role::getId )
 					.collect(Collectors.toSet())
 				.contains( managedRole.getId() );
 	}
@@ -298,7 +298,7 @@ public class RoleDao implements BaseDao{
 	public boolean directlyManagesRole(Role role, Role managedRole) {
 		return findDirectManagedRoles(role)
 				.stream()
-					.map( dmr -> dmr.getId() )
+					.map( Role::getId )
 					.collect(Collectors.toSet())
 				.contains( managedRole.getId() );
 	}
@@ -307,7 +307,7 @@ public class RoleDao implements BaseDao{
 		
 		return findIndirectManagedRoles(role)
 				.stream()
-					.map( dmr -> dmr.getId() )
+					.map( Role::getId )
 					.collect(Collectors.toSet())
 					.contains( managedRole.getId() );
 	}

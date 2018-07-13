@@ -109,7 +109,7 @@ public class UserRoleRelationDao implements BaseDao {
 			throw new IllegalArgumentException("Role: " + urr.getRoleId() + " is already assigned to User: " + urr.getUserId());
 		}
 		
-		Set<String> userRolesIds = findUserRoleRelations(urr.getUserId(), null).stream().map( r -> r.getRoleId() ).collect(Collectors.toSet());
+		Set<String> userRolesIds = findUserRoleRelations(urr.getUserId(), null).stream().map( UserRoleRelation::getRoleId ).collect(Collectors.toSet());
 		for( String roleId : userRolesIds ) {
 			if( roleDao.hasSubRole( roleDao.findRoleById(roleId), roleDao.findRoleById(urr.getRoleId())) ) {
 				throw new IllegalArgumentException("Role: " + urr.getRoleId() + " is SubRole of Role: " + roleId + ", already assigned to User: " + urr.getUserId());

@@ -13,6 +13,10 @@ import clast.census.model.SubRoleRelationType;
 
 public class SubRoleRelationDao implements BaseDao {
 	
+	private static final String SUB_ROLE_ID = "subRoleId";
+	private static final String ROLE_ID = "roleId";
+	private static final String SELECT_FROM = "select srr from ";
+	
 	private RoleDao roleDao;
 	
 	public SubRoleRelationDao(RoleDao roleDao) {
@@ -30,12 +34,12 @@ public class SubRoleRelationDao implements BaseDao {
 			
 			Set<String> roleAncestorsIds = findSubRoleRelations(null, null, subRoleRelation.getRoleId())
 					.stream()
-					.map( srr -> srr.getRoleId())
+					.map( SubRoleRelation::getRoleId )
 					.collect(Collectors.toSet());
 			
 			Set<String> subRoleDescendantsIds = findSubRoleRelations(null, subRoleRelation.getSubRoleId(), null)
 					.stream()
-					.map( srr -> srr.getSubRoleId())
+					.map( SubRoleRelation::getSubRoleId )
 					.collect(Collectors.toSet());
 			
 			for(String roleAncestorId : roleAncestorsIds) {
@@ -86,7 +90,7 @@ public class SubRoleRelationDao implements BaseDao {
 		
 		Set<String> subRoleDescendantsIds = findSubRoleRelations(null, subRoleRelation.getSubRoleId(), null)
 				.stream()
-				.map( srr -> srr.getSubRoleId())
+				.map( SubRoleRelation::getSubRoleId )
 				.collect(Collectors.toSet());
 		
 		Set<SubRoleRelation> toDeleteRelations = new HashSet<>();
@@ -112,36 +116,38 @@ public class SubRoleRelationDao implements BaseDao {
 	@SuppressWarnings("unchecked")
 	public Set<SubRoleRelation> findSubRoleRelations(SubRoleRelationType type, String roleId, String subRoleId) {
 		
+		
+		
 		if( type == null && roleId == null && subRoleId == null ) {
 			throw new IllegalArgumentException("Unable to find subRole relations: At least one search field must be specified.");
 		}else if( type != null && roleId == null && subRoleId == null ) {
-			Query q = getEntityManager().createQuery("select srr from " + type.getQueryValue() + " srr");
+			Query q = getEntityManager().createQuery(SELECT_FROM + type.getQueryValue() + " srr");
 			return new HashSet<>(q.getResultList());
 		}else if( type != null && roleId != null && subRoleId == null ) {
-			Query q = getEntityManager().createQuery("select srr from " + type.getQueryValue() + " srr where srr.roleId = :roleId");
-			q.setParameter("roleId", roleId);
+			Query q = getEntityManager().createQuery(SELECT_FROM + type.getQueryValue() + " srr where srr.roleId = :roleId");
+			q.setParameter(ROLE_ID, roleId);
 			return new HashSet<>(q.getResultList());
 		}else if( type != null && roleId == null ) {
-			Query q = getEntityManager().createQuery("select srr from " + type.getQueryValue() + " srr where srr.subRoleId = :subRoleId");
-			q.setParameter("subRoleId", subRoleId);
+			Query q = getEntityManager().createQuery(SELECT_FROM + type.getQueryValue() + " srr where srr.subRoleId = :subRoleId");
+			q.setParameter(SUB_ROLE_ID, subRoleId);
 			return new HashSet<>(q.getResultList());
 		}else if( type != null ) {
-			Query q = getEntityManager().createQuery("select srr from " + type.getQueryValue() + " srr where srr.roleId = :roleId and srr.subRoleId = :subRoleId");
-			q.setParameter("roleId", roleId);
-			q.setParameter("subRoleId", subRoleId);
+			Query q = getEntityManager().createQuery(SELECT_FROM + type.getQueryValue() + " srr where srr.roleId = :roleId and srr.subRoleId = :subRoleId");
+			q.setParameter(ROLE_ID, roleId);
+			q.setParameter(SUB_ROLE_ID, subRoleId);
 			return new HashSet<>(q.getResultList());
 		}else if( roleId != null && subRoleId == null ) {
 			Query q = getEntityManager().createQuery("select srr from SubRoleRelation srr where srr.roleId = :roleId");
-			q.setParameter("roleId", roleId);
+			q.setParameter(ROLE_ID, roleId);
 			return new HashSet<>(q.getResultList());
 		}else if( roleId == null ) {
 			Query q = getEntityManager().createQuery("select srr from SubRoleRelation srr where srr.subRoleId = :subRoleId");
-			q.setParameter("subRoleId", subRoleId);
+			q.setParameter(SUB_ROLE_ID, subRoleId);
 			return new HashSet<>(q.getResultList());
 		}else {
 			Query q = getEntityManager().createQuery("select srr from SubRoleRelation srr where srr.roleId = :roleId and srr.subRoleId = :subRoleId");
-			q.setParameter("roleId", roleId);
-			q.setParameter("subRoleId", subRoleId);
+			q.setParameter(ROLE_ID, roleId);
+			q.setParameter(SUB_ROLE_ID, subRoleId);
 			return new HashSet<>(q.getResultList());
 		}
 	}

@@ -14,6 +14,8 @@ import clast.census.model.UserRoleRelation;
 
 public class UserDao implements BaseDao {
 	
+	private static final String ROLE_ID_NULL = "Unable to verify role assignment: role ID cannot be null.";
+	
 	private RoleDao roleDao;
 	private UserRoleRelationDao userRoleRelationDao;
 	
@@ -254,12 +256,12 @@ public class UserDao implements BaseDao {
 	public boolean hasRole(User user, Role role) {
 		
 		if( role == null || role.getId() == null ) {
-			throw new IllegalArgumentException("Unable to verify role assignment: role ID cannot be null.");
+			throw new IllegalArgumentException(ROLE_ID_NULL);
 		}
 		
 		return findAllRoles(user)
 				.stream()
-					.map( r -> r.getId() )
+					.map( Role::getId )
 					.collect( Collectors.toSet() )
 				.contains(role.getId());
 	}
@@ -267,12 +269,12 @@ public class UserDao implements BaseDao {
 	public boolean directlyHasRole(User user, Role role) {
 
 		if( role == null || role.getId() == null ) {
-			throw new IllegalArgumentException("Unable to verify role assignment: role ID cannot be null.");
+			throw new IllegalArgumentException(ROLE_ID_NULL);
 		}
 		
 		return findDirectRoles(user)
 				.stream()
-					.map( r -> r.getId() )
+					.map( Role::getId )
 					.collect( Collectors.toSet() )
 				.contains(role.getId());
 	}
@@ -280,12 +282,12 @@ public class UserDao implements BaseDao {
 	public boolean indirectlyHasRole(User user, Role role) {
 
 		if( role == null || role.getId() == null ) {
-			throw new IllegalArgumentException("Unable to verify role assignment: role ID cannot be null.");
+			throw new IllegalArgumentException(ROLE_ID_NULL);
 		}
 		
 		return findIndirectRoles(user)
 				.stream()
-				.map( r -> r.getId() )
+				.map( Role::getId )
 				.collect( Collectors.toSet() )
 				.contains(role.getId());
 	}
@@ -355,13 +357,13 @@ public class UserDao implements BaseDao {
 		
 		return findManagedRoles(user)
 				.stream()
-					.map( r -> r.getId() )
+					.map( Role::getId )
 					.collect(Collectors.toSet())
 				.contains(role.getId());
 	}
 
 	private boolean userHasRole(User user, Role role) {
-		Set<String> roleIds = findAllRoles(user).stream().map( r -> r.getId() ).collect(Collectors.toSet());
+		Set<String> roleIds = findAllRoles(user).stream().map( Role::getId ).collect(Collectors.toSet());
 		return roleIds.contains(role.getId());
 	}
 
