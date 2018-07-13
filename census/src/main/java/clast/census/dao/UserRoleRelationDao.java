@@ -79,7 +79,7 @@ public class UserRoleRelationDao implements BaseDao {
 			Query q = getEntityManager().createQuery("select urr from UserRoleRelation urr where urr.userId = :userId");
 			q.setParameter("userId", userId);
 			return new HashSet<>(q.getResultList());
-		}else if( userId == null && roleId != null ) {
+		}else if( userId == null ) {
 			Query q = getEntityManager().createQuery("select urr from UserRoleRelation urr where urr.roleId = :roleId");
 			q.setParameter("roleId", roleId);
 			return new HashSet<>(q.getResultList());

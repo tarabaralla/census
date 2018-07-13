@@ -64,7 +64,7 @@ public class ManagedRoleRelationDao implements BaseDao {
 			Query q = getEntityManager().createQuery("select mrr from ManagedRoleRelation mrr where mrr.roleId = :roleId");
 			q.setParameter("roleId", roleId);
 			return new HashSet<>(q.getResultList());
-		}else if( roleId == null && managedRoleId != null ) {
+		}else if( roleId == null ) {
 			Query q = getEntityManager().createQuery("select mrr from ManagedRoleRelation mrr where mrr.managedRoleId = :managedRoleId");
 			q.setParameter("managedRoleId", managedRoleId);
 			return new HashSet<>(q.getResultList());

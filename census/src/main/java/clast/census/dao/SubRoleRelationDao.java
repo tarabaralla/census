@@ -114,29 +114,27 @@ public class SubRoleRelationDao implements BaseDao {
 		
 		if( type == null && roleId == null && subRoleId == null ) {
 			throw new IllegalArgumentException("Unable to find subRole relations: At least one search field must be specified.");
-		}
-		
-		if( type != null && roleId == null && subRoleId == null ) {
+		}else if( type != null && roleId == null && subRoleId == null ) {
 			Query q = getEntityManager().createQuery("select srr from " + type.getQueryValue() + " srr");
 			return new HashSet<>(q.getResultList());
 		}else if( type != null && roleId != null && subRoleId == null ) {
 			Query q = getEntityManager().createQuery("select srr from " + type.getQueryValue() + " srr where srr.roleId = :roleId");
 			q.setParameter("roleId", roleId);
 			return new HashSet<>(q.getResultList());
-		}else if( type != null && roleId == null && subRoleId != null ) {
+		}else if( type != null && roleId == null ) {
 			Query q = getEntityManager().createQuery("select srr from " + type.getQueryValue() + " srr where srr.subRoleId = :subRoleId");
 			q.setParameter("subRoleId", subRoleId);
 			return new HashSet<>(q.getResultList());
-		}else if( type != null && roleId != null && subRoleId != null ) {
+		}else if( type != null ) {
 			Query q = getEntityManager().createQuery("select srr from " + type.getQueryValue() + " srr where srr.roleId = :roleId and srr.subRoleId = :subRoleId");
 			q.setParameter("roleId", roleId);
 			q.setParameter("subRoleId", subRoleId);
 			return new HashSet<>(q.getResultList());
-		}else if( type == null && roleId != null && subRoleId == null ) {
+		}else if( roleId != null && subRoleId == null ) {
 			Query q = getEntityManager().createQuery("select srr from SubRoleRelation srr where srr.roleId = :roleId");
 			q.setParameter("roleId", roleId);
 			return new HashSet<>(q.getResultList());
-		}else if( type == null && roleId == null && subRoleId != null ) {
+		}else if( roleId == null ) {
 			Query q = getEntityManager().createQuery("select srr from SubRoleRelation srr where srr.subRoleId = :subRoleId");
 			q.setParameter("subRoleId", subRoleId);
 			return new HashSet<>(q.getResultList());

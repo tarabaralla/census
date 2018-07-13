@@ -179,18 +179,21 @@ public class Session implements Serializable {
 			User newUser = userDao.findUserByUsername(user.getUsername());
 
 			for (Role role : roles) {
-
-				try {
-					userDao.addRole(newUser, roleDao.findRoleByName(role.getName()));
-				} catch (Exception e) {
-					logger.error("Error during user creation. ", e);
-				}
+				addRoleToNewUser(newUser, role);
 			}
 
 			return true;
 
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Unable to create user: " + e.getMessage());
+		}
+	}
+
+	private void addRoleToNewUser(User newUser, Role role) {
+		try {
+			userDao.addRole(newUser, roleDao.findRoleByName(role.getName()));
+		} catch (Exception e) {
+			logger.error("Error during user creation. ", e);
 		}
 	}
 
