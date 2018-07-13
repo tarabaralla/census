@@ -55,6 +55,10 @@ public class UserDao  extends BaseDao {
 			throw new IllegalArgumentException("Username cannot be null.");
 		}
 		
+		if( "".equals(user.getUsername()) ) {
+			throw new IllegalArgumentException("Username cannot be empty.");
+		}
+		
 		if( user.getPassword() == null ) {
 			throw new IllegalArgumentException("Password cannot be null.");
 		}

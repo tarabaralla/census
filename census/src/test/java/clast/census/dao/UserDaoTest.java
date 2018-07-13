@@ -119,6 +119,17 @@ public class UserDaoTest extends BaseTest {
 		expectedEx.expectMessage("Unable to create user: Username cannot be null.");
 		
 		User user = new User();
+		user.setUsername(null);
+		user.encryptPassword("password");
+		userDao.createUser(user);
+	}
+	
+	@Test
+	public void testCreateUserWithEmptyUsername() {
+		expectedEx.expect(IllegalArgumentException.class);
+		expectedEx.expectMessage("Unable to create user: Username cannot be empty.");
+		
+		User user = new User();
 		user.encryptPassword("password");
 		userDao.createUser(user);
 	}

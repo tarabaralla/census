@@ -36,6 +36,7 @@ public class User {
 	private String phone;
 
 	public User() {
+		username = "";
 		password = new Password();
 	}
 	
