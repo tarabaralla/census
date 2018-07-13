@@ -7,7 +7,7 @@ import javax.persistence.Query;
 
 import clast.census.model.ManagedRoleRelation;
 
-public class ManagedRoleRelationDao extends BaseDao {
+public class ManagedRoleRelationDao implements BaseDao {
 	
 	private RoleDao roleDao;
 	

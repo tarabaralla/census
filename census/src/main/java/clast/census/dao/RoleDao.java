@@ -14,7 +14,7 @@ import clast.census.model.Role;
 import clast.census.model.SubRoleRelation;
 import clast.census.model.SubRoleRelationType;
 
-public class RoleDao extends BaseDao{
+public class RoleDao implements BaseDao{
 	
 	private SubRoleRelationDao subRoleRelationDao;
 	private ManagedRoleRelationDao managedRoleRelationDao;

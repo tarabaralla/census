@@ -4,9 +4,9 @@ import javax.persistence.EntityManager;
 
 import clast.census.persistence.PersistenceManager;
 
-public abstract class BaseDao {
+public interface BaseDao {
 	
-	EntityManager getEntityManager() {
+	default EntityManager getEntityManager() {
 		return PersistenceManager.getEntityManager();
 	}
 

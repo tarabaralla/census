@@ -12,7 +12,7 @@ import clast.census.model.Role;
 import clast.census.model.User;
 import clast.census.model.UserRoleRelation;
 
-public class UserDao  extends BaseDao {
+public class UserDao implements BaseDao {
 	
 	private RoleDao roleDao;
 	private UserRoleRelationDao userRoleRelationDao;
