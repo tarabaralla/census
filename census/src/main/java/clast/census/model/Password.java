@@ -57,7 +57,9 @@ public class Password {
 			return true;
 		}
 		
-		return value.equals(encrypt(plainPassword));
+		String encryptedPassword = encrypt(plainPassword);
+		
+		return value.equals(encryptedPassword);
 	}
 
 	private String encrypt(String plainPassword) {
@@ -69,7 +71,7 @@ public class Password {
 			return new String(Base64.encodeBase64(md.digest()));
 			
 		} catch (NoSuchAlgorithmException e) {
-			throw new RuntimeException("Unable to encrypt: encryption algorithm not found.");
+			throw new IllegalStateException("Unable to encrypt: encryption algorithm not found.");
 		}
 	}
 	

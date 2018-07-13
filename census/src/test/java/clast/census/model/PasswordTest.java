@@ -71,7 +71,7 @@ public class PasswordTest {
 	@Test
 	public void testNoSuchAlgorithmException() {
 
-		expectedEx.expect(RuntimeException.class);
+		expectedEx.expect(IllegalStateException.class);
 		expectedEx.expectMessage("Unable to encrypt: encryption algorithm not found.");
 		
 		try {
