@@ -146,6 +146,7 @@
 	</dependencies>
 
 	<profiles>
+	
 		<profile>
 			<id>jacoco</id>
 			<activation>
@@ -183,6 +184,7 @@
 				</plugins>
 			</build>
 		</profile>
+		
 	</profiles>
 
 </project>
