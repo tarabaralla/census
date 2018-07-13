@@ -23,5 +23,5 @@ script:
    then
      mvn -f census/pom.xml clean verify -Pjacoco coveralls:report sonar:sonar;
    else
-     mvn -f census/pom.xml clean verify sonar:sonar;
+     mvn -f census/pom.xml clean verify;
    fi
