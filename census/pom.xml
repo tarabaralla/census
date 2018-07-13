@@ -21,6 +21,7 @@
 
 	<build>
 		<plugins>
+		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -30,6 +31,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
@@ -43,6 +45,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.eluder.coveralls</groupId>
 				<artifactId>coveralls-maven-plugin</artifactId>
@@ -53,6 +56,7 @@
 					</relativeReportDirs>
 				</configuration>
 			</plugin>
+			
 		</plugins>
 	</build>
 
