@@ -5,9 +5,16 @@
 	<groupId>clast</groupId>
 	<artifactId>census</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>census</name>
+
+	<modules>
+		<module>census-core</module>
+		<module>census-mysql</module>
+		<module>census-mongo</module>
+		<module>census-mem</module>
+	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,23 +22,26 @@
 		<failsafe.report.path>${project.basedir}/target/failsafe-reports</failsafe.report.path>
 		<jacoco.report.path>${project.basedir}/target/jacoco</jacoco.report.path>
 		<sonar.language>java</sonar.language>
-		<sonar.junit.reportPaths>${surefire.report.path}, ${failsafe.report.path}</sonar.junit.reportPaths>
+		<sonar.junit.reportPaths>${surefire.report.path},	${failsafe.report.path}</sonar.junit.reportPaths>
 		<sonar.jacoco.reportPaths>${jacoco.report.path}/jacoco.exec</sonar.jacoco.reportPaths>
 	</properties>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.7.0</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
 		<plugins>
-		
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.7.0</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
@@ -45,7 +55,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.eluder.coveralls</groupId>
 				<artifactId>coveralls-maven-plugin</artifactId>
@@ -56,97 +66,11 @@
 					</relativeReportDirs>
 				</configuration>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 
-	<dependencies>
-
-		<!-- Logs -->
-
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
-
-		<!-- Testing -->
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.10.19</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- CDI -->
-
-		<dependency>
-			<groupId>org.jboss.weld.se</groupId>
-			<artifactId>weld-se-core</artifactId>
-			<version>2.4.5.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss</groupId>
-			<artifactId>jandex</artifactId>
-			<version>2.0.5.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jglue.cdi-unit</groupId>
-			<artifactId>cdi-unit</artifactId>
-			<version>4.0.1</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- Mongo + Kundera -->
-
-		<dependency>
-			<groupId>com.impetus.kundera.client</groupId>
-			<artifactId>kundera-mongo</artifactId>
-			<version>3.13</version>
-		</dependency>
-
-		<!-- Cassandra + Kundera -->
-
-		<dependency>
-			<groupId>com.impetus.kundera.client</groupId>
-			<artifactId>kundera-cassandra</artifactId>
-			<version>3.9</version>
-		</dependency>
-
-		<!-- JPA/Hibernate -->
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.6.Final</version>
-		</dependency>
-
-		<!-- MySql -->
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.31</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<version>2.4.1</version>
-			<scope>test</scope>
-		</dependency>
-
-	</dependencies>
-
 	<profiles>
-	
 		<profile>
 			<id>jacoco</id>
 			<activation>
@@ -184,7 +108,6 @@
 				</plugins>
 			</build>
 		</profile>
-		
 	</profiles>
 
 </project>
