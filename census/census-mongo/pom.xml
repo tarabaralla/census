@@ -25,6 +25,14 @@
 			<artifactId>census-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
+		<dependency>
+			<groupId>clast</groupId>
+			<artifactId>census-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>test-jar</type>
+  			<scope>test</scope>
+		</dependency>
 		
 		<dependency>
 			<groupId>com.impetus.kundera.client</groupId>
