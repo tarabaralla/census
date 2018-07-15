@@ -29,8 +29,9 @@
 		<dependency>
 			<groupId>clast</groupId>
 			<artifactId>census-core</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<classifier>tests</classifier>
 			<type>test-jar</type>
+			<version>0.0.1-SNAPSHOT</version>
   			<scope>test</scope>
 		</dependency>
 
