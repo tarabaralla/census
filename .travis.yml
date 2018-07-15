@@ -1,7 +1,11 @@
 language: java
 
+services:
+  - docker
+
 # skip installation step
-install: true
+install:
+  - docker pull mongo
 
 matrix:
   fast_finish: true
