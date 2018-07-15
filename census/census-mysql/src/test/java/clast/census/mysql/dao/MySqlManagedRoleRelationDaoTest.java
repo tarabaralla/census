@@ -3,7 +3,7 @@ package clast.census.mysql.dao;
 import clast.census.core.dao.AbstractManagedRoleRelationDaoTest;
 import clast.census.core.persistence.PersistenceManager;
 
-public class MySqlManagedRoleRelationDaoTest extends AbstractManagedRoleRelationDaoTest {
+public abstract class MySqlManagedRoleRelationDaoTest extends AbstractManagedRoleRelationDaoTest {
 	
 	@Override
 	public void configurePersistenceUnit() {
