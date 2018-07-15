@@ -1,19 +1,13 @@
 language: java
 
+sudo: required
+install: true
+
 services:
   - docker
 
-# skip installation step
-install:
-  - docker pull mongo
-
-matrix:
-  fast_finish: true
-  include:
-    - jdk: oraclejdk8
-      env: WITH_COVERALLS=true
-    - os: osx
-      osx_image: xcode8
+before_install:
+  - docker run -p 27017:27017 --rm mongo
 
 addons:
   sonarcloud:
@@ -23,12 +17,11 @@ addons:
     organization: "tarabaralla-github"
     token:
       secure: "XjyUUSokezfQVlFAXzozwlumrtRIGAWWBfutkjxi3Ri7P1Nlo4WAfKS7qtVtD5f4u9X5IvUGCMl3Wz+qN9wIbjygW2mfZP4zCjIn7Pe1yvqLKKGjFRr+/viIfvhmZ703TsicySYkeWzLLH1b3kUtOjRiW3O3RWPtW+AUx+wamqU2IOy/6GKDGwP31iE5uzuuY/UTMSFEF002T5kMZ1prAqjUbDWgEzIESCJpiyDCWLEaLUHJsd6eIWwbo2BhpxXBg9rYCZ/jDhM/Fs8g1/paVXhEBXVFbLBHltawCFFZI7PtnhYym7wPxrCnPMPAs6XbET0ddv/LrH9L5SoovCqvNrFf1JfoCO7CznfhZK5meaEOpwAJG3vThkRYK9S50WOZQELuRLaSWkVLS5eWF/Eo+Tinq4Wsg4YJx+98/6x2OWyBnSx3bmEc45OKz0/yBuD0UqNxV3I9Mp8be9VztGiJX59nMnfFycN+R8dxDy0H7gRitsVC4K+m9ejMZX197GWkjZpjneZxT4xctwGgozB5SQ6hHd+HFwds5y3b66OcvRdj7FiUBlS8+ZYsi0F6icy+5cmaOTt/4jEfPyzWGWNGHurmiunj0qMrw68ANTmPR+2sAY2HSNL7++S9Y+iMdhklX87RO7Os5UymS+Gzpiyh4LYwlGg320oic1YiXK8E1Ko="
-
-
+   
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+    
 script:
- - if [ "$WITH_COVERALLS" == "true" ];
-   then
-     mvn -f census/pom.xml clean verify -Pjacoco coveralls:report sonar:sonar;
-   else
-     mvn -f census/pom.xml clean verify;
-   fi
+ - mvn -f census/pom.xml clean verify -Pjacoco sonar:sonar coveralls:report
