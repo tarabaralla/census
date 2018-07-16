@@ -49,37 +49,37 @@
 
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-failsafe-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>io.fabric8</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<configuration>
-					<images>
-						<image>
-							<name>mysql</name>
-							<run>
-								<ports>
-									<port>3306:3306</port>
-								</ports>
-								<env>
-									<MYSQL_ROOT_PASSWORD>root</MYSQL_ROOT_PASSWORD>
-									<MYSQL_DATABASE>censusdb</MYSQL_DATABASE>
-								</env>
-								<wait>
-									<time>50000</time>
-									<log>socket: '/var/run/mysqld/mysqld.sock'</log>
-								</wait>
-							</run>
-						</image>
-					</images>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+<!-- 	<build> -->
+<!-- 		<plugins> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-failsafe-plugin</artifactId> -->
+<!-- 			</plugin> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>io.fabric8</groupId> -->
+<!-- 				<artifactId>docker-maven-plugin</artifactId> -->
+<!-- 				<configuration> -->
+<!-- 					<images> -->
+<!-- 						<image> -->
+<!-- 							<name>mysql</name> -->
+<!-- 							<run> -->
+<!-- 								<ports> -->
+<!-- 									<port>3306:3306</port> -->
+<!-- 								</ports> -->
+<!-- 								<env> -->
+<!-- 									<MYSQL_ROOT_PASSWORD>root</MYSQL_ROOT_PASSWORD> -->
+<!-- 									<MYSQL_DATABASE>censusdb</MYSQL_DATABASE> -->
+<!-- 								</env> -->
+<!-- 								<wait> -->
+<!-- 									<time>50000</time> -->
+<!-- 									<log>socket: '/var/run/mysqld/mysqld.sock'</log> -->
+<!-- 								</wait> -->
+<!-- 							</run> -->
+<!-- 						</image> -->
+<!-- 					</images> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+<!-- 		</plugins> -->
+<!-- 	</build> -->
 
 </project>
