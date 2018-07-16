@@ -1,13 +1,13 @@
 language: java
 
+jdk:
+  - oraclejdk8
+
 sudo: required
 install: true
 
 services:
   - docker
-
-before_install:
-  - docker run -p 27017:27017 --rm mongo
 
 addons:
   sonarcloud:
