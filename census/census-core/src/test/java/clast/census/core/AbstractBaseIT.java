@@ -1,6 +1,6 @@
 package clast.census.core;
 
-public abstract class AbstractBaseTest {
+public abstract class AbstractBaseIT {
 
 	public abstract void configurePersistenceUnit();
 

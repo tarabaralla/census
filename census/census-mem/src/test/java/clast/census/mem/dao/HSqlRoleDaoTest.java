@@ -1,9 +1,9 @@
 package clast.census.mem.dao;
 
-import clast.census.core.dao.AbstractRoleDaoTest;
+import clast.census.core.dao.AbstractRoleDaoIT;
 import clast.census.core.persistence.PersistenceManager;
 
-public class HSqlRoleDaoTest extends AbstractRoleDaoTest {
+public class HSqlRoleDaoTest extends AbstractRoleDaoIT {
 	
 	@Override
 	public void configurePersistenceUnit() {

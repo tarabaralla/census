@@ -57,31 +57,6 @@
 					<artifactId>docker-maven-plugin</artifactId>
 					<version>0.23.0</version>
 					<configuration>
-						<images>
-							<image>
-								<name>mysql</name>
-								<run>
-									<ports>
-										<port>3306:3306</port>
-									</ports>
-									<env>
-										<MYSQL_ROOT_PASSWORD>root</MYSQL_ROOT_PASSWORD>
-									</env>
-									<wait>
-										<time>50000</time>
-										<log>socket: '/var/run/mysqld/mysqld.sock' port: 3306</log>
-									</wait>
-								</run>
-							</image>
-							<image>
-								<name>mongo</name>
-								<run>
-									<ports>
-										<port>27017:27017</port>
-									</ports>
-								</run>
-							</image>
-						</images>
 						<showLogs>true</showLogs>
 					</configuration>
 					<executions>

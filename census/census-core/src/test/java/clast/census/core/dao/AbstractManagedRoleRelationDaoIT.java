@@ -12,13 +12,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import clast.census.core.AbstractBaseTest;
+import clast.census.core.AbstractBaseIT;
 import clast.census.core.dao.ManagedRoleRelationDao;
 import clast.census.core.dao.RoleDao;
 import clast.census.core.model.ManagedRoleRelation;
 import clast.census.core.model.Role;
 
-public abstract class AbstractManagedRoleRelationDaoTest extends AbstractBaseTest {
+public abstract class AbstractManagedRoleRelationDaoIT extends AbstractBaseIT {
 
 	private ManagedRoleRelationDao managedRoleRelationDao;
 	private RoleDao roleDao;

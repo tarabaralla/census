@@ -1,9 +1,9 @@
 package clast.census.mongo.dao;
 
-import clast.census.core.dao.AbstractManagedRoleRelationDaoTest;
+import clast.census.core.dao.AbstractUserDaoIT;
 import clast.census.core.persistence.PersistenceManager;
 
-public class MongoManagedRoleRelationDaoTest extends AbstractManagedRoleRelationDaoTest {
+public class MongoUserDaoIT extends AbstractUserDaoIT {
 	
 	@Override
 	public void configurePersistenceUnit() {

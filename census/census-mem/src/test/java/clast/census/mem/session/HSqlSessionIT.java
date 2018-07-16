@@ -1,9 +1,9 @@
 package clast.census.mem.session;
 
 import clast.census.core.persistence.PersistenceManager;
-import clast.census.core.session.AbstractSessionTest;
+import clast.census.core.session.AbstractSessionIT;
 
-public class HSqlSessionTest extends AbstractSessionTest {
+public abstract class HSqlSessionIT extends AbstractSessionIT {
 
 	@Override
 	public void configurePersistenceUnit() {

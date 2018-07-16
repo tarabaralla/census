@@ -2,9 +2,9 @@
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	
+
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>clast</groupId>
 		<artifactId>census</artifactId>
@@ -19,7 +19,7 @@
 	</properties>
 
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>clast</groupId>
 			<artifactId>census-core</artifactId>
@@ -32,7 +32,7 @@
 			<classifier>tests</classifier>
 			<type>test-jar</type>
 			<version>0.0.1-SNAPSHOT</version>
-  			<scope>test</scope>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -40,13 +40,46 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.31</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.6.Final</version>
 		</dependency>
-		
+
 	</dependencies>
-	
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<configuration>
+					<images>
+						<image>
+							<name>mysql</name>
+							<run>
+								<ports>
+									<port>3306:3306</port>
+								</ports>
+								<env>
+									<MYSQL_ROOT_PASSWORD>root</MYSQL_ROOT_PASSWORD>
+									<MYSQL_DATABASE>censusdb</MYSQL_DATABASE>
+								</env>
+								<wait>
+									<time>50000</time>
+									<log>socket: '/var/run/mysqld/mysqld.sock'</log>
+								</wait>
+							</run>
+						</image>
+					</images>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

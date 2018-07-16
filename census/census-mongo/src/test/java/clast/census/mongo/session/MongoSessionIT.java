@@ -1,9 +1,9 @@
 package clast.census.mongo.session;
 
 import clast.census.core.persistence.PersistenceManager;
-import clast.census.core.session.AbstractSessionTest;
+import clast.census.core.session.AbstractSessionIT;
 
-public abstract class MongoSessionTest extends AbstractSessionTest {
+public abstract class MongoSessionIT extends AbstractSessionIT {
 
 	@Override
 	public void configurePersistenceUnit() {
