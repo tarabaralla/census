@@ -55,7 +55,7 @@
 				<plugin>
 					<groupId>io.fabric8</groupId>
 					<artifactId>docker-maven-plugin</artifactId>
-					<version>0.23.0</version>
+					<version>0.21.0</version>
 					<configuration>
 						<showLogs>true</showLogs>
 					</configuration>
@@ -64,6 +64,7 @@
 							<id>docker:start</id>
 							<phase>pre-integration-test</phase>
 							<goals>
+								<goal>build</goal>
 								<goal>start</goal>
 							</goals>
 						</execution>

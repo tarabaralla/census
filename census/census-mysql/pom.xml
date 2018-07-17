@@ -36,10 +36,11 @@
 		</dependency>
 
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.31</version>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.11</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -49,37 +50,36 @@
 
 	</dependencies>
 
-<!-- 	<build> -->
-<!-- 		<plugins> -->
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-failsafe-plugin</artifactId> -->
-<!-- 			</plugin> -->
-<!-- 			<plugin> -->
-<!-- 				<groupId>io.fabric8</groupId> -->
-<!-- 				<artifactId>docker-maven-plugin</artifactId> -->
-<!-- 				<configuration> -->
-<!-- 					<images> -->
-<!-- 						<image> -->
-<!-- 							<name>mysql</name> -->
-<!-- 							<run> -->
-<!-- 								<ports> -->
-<!-- 									<port>3306:3306</port> -->
-<!-- 								</ports> -->
-<!-- 								<env> -->
-<!-- 									<MYSQL_ROOT_PASSWORD>root</MYSQL_ROOT_PASSWORD> -->
-<!-- 									<MYSQL_DATABASE>censusdb</MYSQL_DATABASE> -->
-<!-- 								</env> -->
-<!-- 								<wait> -->
-<!-- 									<time>50000</time> -->
-<!-- 									<log>socket: '/var/run/mysqld/mysqld.sock'</log> -->
-<!-- 								</wait> -->
-<!-- 							</run> -->
-<!-- 						</image> -->
-<!-- 					</images> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
-<!-- 		</plugins> -->
-<!-- 	</build> -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<configuration>
+					<images>
+						<image>
+							<name>mysqldb</name>
+							<run>
+								<ports>
+									<port>3307:3306</port>
+								</ports>
+								<env>
+									<MYSQL_ROOT_PASSWORD>root</MYSQL_ROOT_PASSWORD>
+								</env>
+								<wait>
+									<time>50000</time>
+									<log>mysqld: ready for connections. Version: '8.0.11'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.</log>
+								</wait>
+							</run>
+						</image>
+					</images>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

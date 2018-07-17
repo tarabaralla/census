@@ -6,9 +6,14 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
+import org.apache.log4j.Logger;
+
 public class PersistenceManager {
 	
+	private static final Logger logger = Logger.getLogger(PersistenceManager.class);
+	
 	private static EntityManager em;
+	private static PersistenceType pt;
 	
 	private PersistenceManager() {}
 	
@@ -47,9 +52,11 @@ public class PersistenceManager {
 		em = Persistence.createEntityManagerFactory("mysql_pu",persistenceMap).createEntityManager();
 	}
 	
-	public static void setUpTestConnection( String testPU) {
-		if( em == null ) {
-			em = Persistence.createEntityManagerFactory(testPU).createEntityManager();
+	public static void setUpTestConnection( PersistenceType persistenceType ) {
+		if( em == null && persistenceType != null && (pt == null || !pt.equals(persistenceType)) ) {
+			em = Persistence.createEntityManagerFactory(persistenceType.getPersistenceUnit()).createEntityManager();
+			pt = persistenceType;
+			logger.info("---> Initialized " + persistenceType + " database");
 		}
 	}
 	
