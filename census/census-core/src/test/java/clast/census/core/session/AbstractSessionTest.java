@@ -21,7 +21,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 
-import clast.census.core.AbstractBaseIT;
+import clast.census.core.AbstractBaseTest;
 import clast.census.core.dao.RoleDao;
 import clast.census.core.dao.UserDao;
 import clast.census.core.model.Role;
@@ -29,7 +29,7 @@ import clast.census.core.model.User;
 
 @InRequestScope
 @RunWith(CdiRunner.class)
-public abstract class AbstractSessionTest extends AbstractBaseIT {
+public abstract class AbstractSessionTest extends AbstractBaseTest {
 
 	@Inject
 	private Session session;

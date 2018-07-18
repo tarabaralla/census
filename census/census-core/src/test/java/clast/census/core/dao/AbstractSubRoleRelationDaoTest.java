@@ -12,14 +12,14 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import clast.census.core.AbstractBaseIT;
+import clast.census.core.AbstractBaseTest;
 import clast.census.core.dao.RoleDao;
 import clast.census.core.dao.SubRoleRelationDao;
 import clast.census.core.model.DirectSubRoleRelation;
 import clast.census.core.model.Role;
 import clast.census.core.model.SubRoleRelationType;
 
-public abstract class AbstractSubRoleRelationDaoTest extends AbstractBaseIT {
+public abstract class AbstractSubRoleRelationDaoTest extends AbstractBaseTest {
 	
 	private SubRoleRelationDao subRoleRelationDao;
 	private RoleDao roleDao;

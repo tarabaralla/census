@@ -12,7 +12,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import clast.census.core.AbstractBaseIT;
+import clast.census.core.AbstractBaseTest;
 import clast.census.core.dao.RoleDao;
 import clast.census.core.dao.UserDao;
 import clast.census.core.dao.UserRoleRelationDao;
@@ -20,7 +20,7 @@ import clast.census.core.model.Role;
 import clast.census.core.model.User;
 import clast.census.core.model.UserRoleRelation;
 
-public abstract class AbstractUserRoleRelationDaoTest extends AbstractBaseIT {
+public abstract class AbstractUserRoleRelationDaoTest extends AbstractBaseTest {
 
 	private UserRoleRelationDao userRoleRelationDao;
 	private UserDao userDao;
