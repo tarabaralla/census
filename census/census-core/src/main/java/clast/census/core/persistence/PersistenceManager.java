@@ -66,7 +66,13 @@ public class PersistenceManager {
 	}
 	
 	public static void tearDownDbConnection() {
-		em.close();
+		
+		if(em != null && em.isOpen() ) {
+			em.close();
+			em = null;
+			pt = null;
+		}
+		
 	}
 	
 }
