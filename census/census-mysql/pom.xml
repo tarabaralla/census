@@ -20,6 +20,8 @@
 
 	<dependencies>
 
+		<!-- Census -->
+
 		<dependency>
 			<groupId>clast</groupId>
 			<artifactId>census-core</artifactId>
@@ -35,17 +37,39 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- MySQL -->
+
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>8.0.11</version>
 		</dependency>
 
+		<!-- Hibernate -->
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.6.Final</version>
+		</dependency>
+		
+		<!-- CDI/Weld -->
+
+		<dependency>
+			<groupId>org.jboss.weld.se</groupId>
+			<artifactId>weld-se-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss</groupId>
+			<artifactId>jandex</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jglue.cdi-unit</groupId>
+			<artifactId>cdi-unit</artifactId>
 		</dependency>
 
 	</dependencies>

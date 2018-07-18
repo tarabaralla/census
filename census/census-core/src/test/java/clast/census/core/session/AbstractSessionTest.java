@@ -26,7 +26,6 @@ import clast.census.core.dao.RoleDao;
 import clast.census.core.dao.UserDao;
 import clast.census.core.model.Role;
 import clast.census.core.model.User;
-import clast.census.core.session.Session;
 
 @InRequestScope
 @RunWith(CdiRunner.class)

@@ -19,6 +19,8 @@
 	</properties>
 
 	<dependencies>
+	
+		<!-- Census -->
 
 		<dependency>
 			<groupId>clast</groupId>
@@ -35,10 +37,31 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Kundera -->
+
 		<dependency>
 			<groupId>com.impetus.kundera.client</groupId>
 			<artifactId>kundera-mongo</artifactId>
 			<version>3.13</version>
+		</dependency>
+		
+		<!-- CDI/Weld -->
+
+		<dependency>
+			<groupId>org.jboss.weld.se</groupId>
+			<artifactId>weld-se-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss</groupId>
+			<artifactId>jandex</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jglue.cdi-unit</groupId>
+			<artifactId>cdi-unit</artifactId>
 		</dependency>
 
 	</dependencies>
