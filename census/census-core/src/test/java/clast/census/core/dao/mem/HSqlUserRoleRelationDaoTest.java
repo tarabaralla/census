@@ -1,10 +1,10 @@
-package clast.census.mem.dao;
+package clast.census.core.dao.mem;
 
-import clast.census.core.dao.AbstractSubRoleRelationDaoIT;
+import clast.census.core.dao.AbstractUserRoleRelationDaoTest;
 import clast.census.core.persistence.PersistenceManager;
 import clast.census.core.persistence.PersistenceType;
 
-public class HSqlSubRoleRelationDaoTest extends AbstractSubRoleRelationDaoIT {
+public class HSqlUserRoleRelationDaoTest extends AbstractUserRoleRelationDaoTest {
 	
 	@Override
 	public void configurePersistenceUnit() {

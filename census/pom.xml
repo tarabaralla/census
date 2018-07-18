@@ -13,7 +13,6 @@
 		<module>census-core</module>
 		<module>census-mysql</module>
 		<module>census-mongo</module>
-		<module>census-mem</module>
 	</modules>
 
 	<properties>

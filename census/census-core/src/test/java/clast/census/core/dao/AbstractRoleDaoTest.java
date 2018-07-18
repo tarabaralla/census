@@ -21,7 +21,7 @@ import clast.census.core.dao.RoleDao;
 import clast.census.core.dao.SubRoleRelationDao;
 import clast.census.core.model.Role;
 
-public abstract class AbstractRoleDaoIT extends AbstractBaseIT {
+public abstract class AbstractRoleDaoTest extends AbstractBaseIT {
 	
 	private RoleDao roleDao;
 	private SubRoleRelationDao subRoleRelationDao;

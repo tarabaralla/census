@@ -1,10 +1,10 @@
 package clast.census.mysql.dao;
 
-import clast.census.core.dao.AbstractSubRoleRelationDaoIT;
+import clast.census.core.dao.AbstractSubRoleRelationDaoTest;
 import clast.census.core.persistence.PersistenceManager;
 import clast.census.core.persistence.PersistenceType;
 
-public class MySqlSubRoleRelationDaoIT extends AbstractSubRoleRelationDaoIT {
+public class MySqlSubRoleRelationDaoIT extends AbstractSubRoleRelationDaoTest {
 	
 	@Override
 	public void configurePersistenceUnit() {

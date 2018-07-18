@@ -1,11 +1,11 @@
-package clast.census.mem.session;
+package clast.census.core.dao.mem;
 
+import clast.census.core.dao.AbstractRoleDaoTest;
 import clast.census.core.persistence.PersistenceManager;
 import clast.census.core.persistence.PersistenceType;
-import clast.census.core.session.AbstractSessionIT;
 
-public abstract class HSqlSessionIT extends AbstractSessionIT {
-
+public class HSqlRoleDaoTest extends AbstractRoleDaoTest {
+	
 	@Override
 	public void configurePersistenceUnit() {
 		PersistenceManager.setUpTestConnection(PersistenceType.HSQL_TEST);

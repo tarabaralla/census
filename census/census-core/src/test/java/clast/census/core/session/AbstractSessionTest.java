@@ -30,7 +30,7 @@ import clast.census.core.session.Session;
 
 @InRequestScope
 @RunWith(CdiRunner.class)
-public abstract class AbstractSessionIT extends AbstractBaseIT {
+public abstract class AbstractSessionTest extends AbstractBaseIT {
 
 	@Inject
 	private Session session;
