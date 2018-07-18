@@ -62,7 +62,7 @@
 				<configuration>
 					<images>
 						<image>
-							<name>mysqldb</name>
+							<name>mysql</name>
 							<run>
 								<ports>
 									<port>3307:3306</port>
