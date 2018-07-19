@@ -1,7 +1,7 @@
 package clast.census.core.dao;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -13,8 +13,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import clast.census.core.AbstractBaseTest;
-import clast.census.core.dao.ManagedRoleRelationDao;
-import clast.census.core.dao.RoleDao;
 import clast.census.core.model.ManagedRoleRelation;
 import clast.census.core.model.Role;
 

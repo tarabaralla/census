@@ -25,26 +25,6 @@
 		</properties>
 	</persistence-unit>
 	
-	<persistence-unit name="mongo_pu_test">
-		<provider>com.impetus.kundera.KunderaPersistence</provider>
-		<class>clast.census.core.model.DirectSubRoleRelation</class>
-		<class>clast.census.core.model.IndirectSubRoleRelation</class>
-		<class>clast.census.core.model.ManagedRoleRelation</class>
-		<class>clast.census.core.model.Password</class>
-		<class>clast.census.core.model.Role</class>
-		<class>clast.census.core.model.SubRoleRelation</class>
-		<class>clast.census.core.model.User</class>
-		<class>clast.census.core.model.UserRoleRelation</class>
-		<properties>
-			<property name="kundera.nodes" value="localhost" />
-			<property name="kundera.port" value="27017" />
-			<property name="kundera.keyspace" value="censusDB" />
-			<property name="kundera.dialect" value="mongodb" />
-			<property name="kundera.ddl.auto.prepare" value="create-drop" />
-			<property name="kundera.client.lookup.class" value="com.impetus.client.mongodb.MongoDBClientFactory" />
-		</properties>
-	</persistence-unit>
-
 	<persistence-unit name="mysql_pu_test" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>clast.census.core.model.DirectSubRoleRelation</class>
@@ -67,6 +47,50 @@
 			<property name="hibernate.format_sql" value="false"/>
 			<property name="hibernate.default_batch_fetch_size" value="16" />
 		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="mysql_pu" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>clast.census.core.model.DirectSubRoleRelation</class>
+		<class>clast.census.core.model.IndirectSubRoleRelation</class>
+		<class>clast.census.core.model.ManagedRoleRelation</class>
+		<class>clast.census.core.model.Password</class>
+		<class>clast.census.core.model.Role</class>
+		<class>clast.census.core.model.SubRoleRelation</class>
+		<class>clast.census.core.model.User</class>
+		<class>clast.census.core.model.UserRoleRelation</class>
+	</persistence-unit>
+		
+	<persistence-unit name="mongo_pu_test">
+		<provider>com.impetus.kundera.KunderaPersistence</provider>
+		<class>clast.census.core.model.DirectSubRoleRelation</class>
+		<class>clast.census.core.model.IndirectSubRoleRelation</class>
+		<class>clast.census.core.model.ManagedRoleRelation</class>
+		<class>clast.census.core.model.Password</class>
+		<class>clast.census.core.model.Role</class>
+		<class>clast.census.core.model.SubRoleRelation</class>
+		<class>clast.census.core.model.User</class>
+		<class>clast.census.core.model.UserRoleRelation</class>
+		<properties>
+			<property name="kundera.nodes" value="localhost" />
+			<property name="kundera.port" value="27017" />
+			<property name="kundera.keyspace" value="censusDB" />
+			<property name="kundera.dialect" value="mongodb" />
+			<property name="kundera.ddl.auto.prepare" value="create-drop" />
+			<property name="kundera.client.lookup.class" value="com.impetus.client.mongodb.MongoDBClientFactory" />
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="mongo_pu">
+		<provider>com.impetus.kundera.KunderaPersistence</provider>
+		<class>clast.census.core.model.DirectSubRoleRelation</class>
+		<class>clast.census.core.model.IndirectSubRoleRelation</class>
+		<class>clast.census.core.model.ManagedRoleRelation</class>
+		<class>clast.census.core.model.Password</class>
+		<class>clast.census.core.model.Role</class>
+		<class>clast.census.core.model.SubRoleRelation</class>
+		<class>clast.census.core.model.User</class>
+		<class>clast.census.core.model.UserRoleRelation</class>
 	</persistence-unit>
 
 </persistence>
