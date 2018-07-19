@@ -25,10 +25,10 @@
 			${failsafe.report.path}</sonar.junit.reportPaths>
 		<sonar.jacoco.reportPaths>${jacoco.report.path}/jacoco.exec</sonar.jacoco.reportPaths>
 	</properties>
-	
+
 	<dependencyManagement>
 		<dependencies>
-			
+
 			<!-- CDI/Weld -->
 
 			<dependency>
@@ -53,7 +53,7 @@
 				<version>4.0.1</version>
 				<scope>test</scope>
 			</dependency>
-			
+
 		</dependencies>
 	</dependencyManagement>
 
@@ -138,6 +138,9 @@
 						<version>0.7.7.201606060606</version>
 						<configuration>
 							<destFile>${jacoco.report.path}/jacoco.exec</destFile>
+							<excludes>
+								<exclude>**/EMFactoryImpl.*</exclude>
+							</excludes>
 						</configuration>
 						<executions>
 							<execution>
