@@ -66,6 +66,18 @@ public class PasswordTest {
 	}
 	
 	@Test
+	public void testCheckWrongPassword1() {
+		password.setValue(null);
+		assertFalse(password.checkPassword(""));
+	}
+	
+	@Test
+	public void testCheckWrongPassword2() {
+		password.encryptPassword("pwd");
+		assertFalse(password.checkPassword(""));
+	}
+	
+	@Test
 	public void testNoSuchAlgorithmException() {
 
 		expectedEx.expect(IllegalStateException.class);

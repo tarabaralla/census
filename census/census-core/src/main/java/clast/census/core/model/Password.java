@@ -49,11 +49,11 @@ public class Password {
 
 	public boolean checkPassword(String plainPassword) {
 		
-		if ( plainPassword == null ) {
+		if ( plainPassword == null || value == null) {
 			return false;
 		}
 		
-		if (StringUtils.isBlank(plainPassword) && StringUtils.isBlank(value) && value != null) {
+		if (StringUtils.isBlank(plainPassword) && StringUtils.isBlank(value)) {
 			return true;
 		}
 		
