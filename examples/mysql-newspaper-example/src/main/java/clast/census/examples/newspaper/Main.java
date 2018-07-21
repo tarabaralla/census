@@ -6,8 +6,6 @@ import java.util.Set;
 import javax.inject.Inject;
 
 import org.apache.log4j.Logger;
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 
 import clast.census.core.dao.RoleDao;
 import clast.census.core.dao.UserDao;
@@ -31,12 +29,6 @@ public class Main {
 	private static final String EDITOR_SECRETARY_NEW_PASS = "br0wn";
 	
 	static {
-		
-		 Weld weld = new Weld();
-         
-	        WeldContainer container = weld.initialize();
-		
-	        session = container.select(Session.class).get();
 	        
 		logger = Logger.getLogger(Main.class);
 		
