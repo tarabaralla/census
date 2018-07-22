@@ -46,16 +46,10 @@ public class Main {
 			initNewspaperOrganizationalChart();
 			
 			initEditorialStaff();
-			
-//			editorLoginAndCreateAnAccountForHisSecretary();
-//			
-//			editorSecretaryLoginAndUpdateHerPassword();
-//			
-//			editorSecretaryLoginAndCreateAccountsForOtherJournalists();
 		
 		}
 		
-		editorSecretaryPrintEditorialStaff();
+		printEditorialStaff();
 		
 		PersistenceManager.tearDownDbConnection();
 		
@@ -138,62 +132,7 @@ public class Main {
 		
 	}
 
-	private static void editorLoginAndCreateAnAccountForHisSecretary() {
-		
-		session.login(EDITOR_SECRETARY_USERNAME, EDITOR_SECRETARY_TEMP_PASS);
-		
-		Set<Role> roles = new HashSet<>();
-		roles.add( roleDao.findRoleByName("editor-secretary") );
-		
-		User martha = new User("martha", EDITOR_SECRETARY_TEMP_PASS);
-		martha.setName("Martha");
-		martha.setLastname("Brown");
-		martha.setEmail("martha.brown@newspaper.com");
-		
-		session.createUser(martha, roles);
-		
-		session.logout();
-		
-	}
-	
-	private static void editorSecretaryLoginAndUpdateHerPassword() {
-		
-		session.login(EDITOR_SECRETARY_USERNAME, EDITOR_SECRETARY_TEMP_PASS);
-		
-		User martha = session.getLoggedUser();
-		martha.setPassword(EDITOR_SECRETARY_NEW_PASS);
-		
-		session.updateProfile(martha);
-		
-		session.logout();
-		
-	}
-
-	private static void editorSecretaryLoginAndCreateAccountsForOtherJournalists() {
-		
-		session.login(EDITOR_SECRETARY_USERNAME, EDITOR_SECRETARY_NEW_PASS);
-		
-		Set<Role> roles = new HashSet<>();
-		roles.add( roleDao.findRoleByName("reporter") );
-		roles.add( roleDao.findRoleByName("correspondent") );
-		session.createUser(new User("petergreen", "peter123"), roles);
-		
-		roles.clear();
-		roles.add( roleDao.findRoleByName("special-reporter") );
-		session.createUser(new User("jackwhite", "wh1te"), roles);
-		session.createUser(new User("chrisblack", "mypwd"), roles);
-		
-		roles.clear();
-		roles.add( roleDao.findRoleByName("collaborator") );
-		session.createUser(new User("sarahdavis", "sarah84"), roles);
-		
-		session.logout();
-		
-	}
-
-	private static void editorSecretaryPrintEditorialStaff() {
-		
-//		session.login(EDITOR_SECRETARY_USERNAME, EDITOR_SECRETARY_NEW_PASS);
+	private static void printEditorialStaff() {
 		
 		logger.info("-----------------------------------------------");
 		logger.info("---------- Newspaper editorial staff ----------");
@@ -212,8 +151,6 @@ public class Main {
 		
 		logger.info("-----------------------------------------------");
 		logger.info("-----------------------------------------------");
-		
-//		session.logout();
 		
 	}
 
