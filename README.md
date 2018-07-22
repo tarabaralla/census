@@ -6,4 +6,4 @@
 
 A recurring problem in the development of full-stack applications, which transcends the specific domain in which they are inserted, is the users and roles management, in order to guarantee different privileges and responsibilities within the applications.
 
-Census is a Java API that allows to delegate the implementation of these features, offering support to applications that use relational databases (MySQL), and non-relational (MongoDB).
+census is a Java API that allows to delegate the implementation of these features, offering support to applications that use relational databases (MySQL), and non-relational (MongoDB).
