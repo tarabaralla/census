@@ -139,7 +139,7 @@
 						<configuration>
 							<destFile>${jacoco.report.path}/jacoco.exec</destFile>
 							<excludes>
-								<exclude>**/EMFactoryImpl.*</exclude>
+								<exclude>**/*EMFactoryImpl.*</exclude>
 							</excludes>
 						</configuration>
 						<executions>
