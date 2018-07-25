@@ -24,6 +24,8 @@
 		<sonar.junit.reportPaths>${surefire.report.path},
 			${failsafe.report.path}</sonar.junit.reportPaths>
 		<sonar.jacoco.reportPaths>${jacoco.report.path}/jacoco.exec</sonar.jacoco.reportPaths>
+		<sonar.exclusions>**/EMFactoryImpl.java</sonar.exclusions>
+		<sonar.coverage.exclusions>**/EMFactoryImpl.java</sonar.coverage.exclusions>
 	</properties>
 
 	<dependencyManagement>
