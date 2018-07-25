@@ -96,7 +96,7 @@
 								</env>
 								<wait>
 									<time>50000</time>
-									<log>mysqld: ready for connections. Version: '8.0.11'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.</log>
+									<log>port: 3306  MySQL Community Server - GPL.</log>
 								</wait>
 							</run>
 						</image>
